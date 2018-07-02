@@ -6,11 +6,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home</title>
+<title>메인 페이지</title>
 </head>
 <body>
-	<h1>Hello world!</h1>
-
-	<P>The time on the server is ${serverTime}.</P>
+	<h1>기본 페이지 입니다.</h1>
 </body>
 </html>
