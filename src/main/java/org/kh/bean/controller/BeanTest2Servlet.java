@@ -1,21 +1,21 @@
-package org.kh.person.controller;
+package org.kh.bean.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.kh.person.model.vo.PersonMgr;
-import org.kh.person.model.vo.PersonVO;
+import org.kh.bean.model.vo.CollectionBean;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class Dependency2servlet extends HttpServlet {
+public class BeanTest2Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Dependency2servlet() {
+	public BeanTest2Servlet() {
 		super();
 	}
 
@@ -32,13 +32,15 @@ public class Dependency2servlet extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		AbstractApplicationContext context = new GenericXmlApplicationContext("/personContext.xml");
-		PersonVO pv = context.getBean("pMgr", PersonMgr.class).getPs();
+		AbstractApplicationContext context = new GenericXmlApplicationContext("/applicationContext.xml");
+		CollectionBean bean = context.getBean("listBean", CollectionBean.class);
 		context.close();
 
-		response.setContentType("text/html; charset=utf-8");
-		response.getWriter()
-				.println("이름 : " + pv.getName() + "<br>" + "나이 : " + pv.getAge() + "<br>" + "주소 :" + pv.getAdrr());
+		List<String> list = bean.getNameList();
+
+		for (String name : list) {
+			System.out.println(name);
+		}
 
 	}
 

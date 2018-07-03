@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
+
+	<import resource="/personContext.xml" />
+	<import resource="/sampleContext.xml" />
+
+	<!-- scope에 sigleton옵션(객체를 한번만 생성) / prototype옵션(객체를 계속 생성) -->
+	<bean id="data" class="org.kh.bean.model.vo.TestDataVO" scope="singleton">
+		<constructor-arg>
+			<value>100</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="listBean" class="org.kh.bean.model.vo.CollectionBean">
+		<property name="nameList">
+			<list>
+				<value>홍길똥</value>
+				<value>홍갈똥</value>
+				<value>홍골똥</value>
+				<value>홍글똥</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="listSetBean" class="org.kh.bean.model.vo.CollectionSetBean">
+		<property name="nameSet">
+			<set>
+				<value>홍길동</value>
+				<value>홍길동</value>
+				<value>홍길동</value>
+				<value>홍길동</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="mapBean" class="org.kh.bean.model.vo.CollectionMapBean">
+		<property name="nameMap">
+			<map>
+				<entry>
+					<key>
+						<value>홍길동</value>
+					</key>
+					<value>경기도 부천</value>
+				</entry>
+				<entry>
+					<key>
+						<value>홍갈동</value>
+					</key>
+					<value>인천시 부평구</value>
+				</entry>
+				<entry>
+					<key>
+						<value>홍골동</value>
+					</key>
+					<value>서울시 강서구</value>
+				</entry>
+				<entry>
+					<key>
+						<value>홍글동</value>
+					</key>
+					<value>서울시 양천구</value>
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!--<bean id="computer" class="org.kh.test.annotation.Computer"> </bean> -->
+
+</beans>

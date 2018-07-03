@@ -8,7 +8,7 @@ public class PersonVO {
 	public PersonVO() {
 	}
 
-	public PersonVO(String name, String adrr, int age) {
+	public PersonVO(String name, int age, String adrr) {
 		super();
 		this.name = name;
 		this.adrr = adrr;

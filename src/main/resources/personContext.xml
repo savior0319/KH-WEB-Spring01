@@ -4,11 +4,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
 	<bean id="person" class="org.kh.person.model.vo.PersonVO">
-		<property name="name" value="홍길동"></property>
-		<property name="age">
+		<constructor-arg value="홍길동"></constructor-arg>
+		<constructor-arg>
 			<value>20</value>
-		</property>
-		<property name="adrr" value="경기도 서울"></property>
+		</constructor-arg>
+		<constructor-arg value="경기도 서울"></constructor-arg>
 	</bean>
 
 	<bean id="pMgr" class="org.kh.person.model.vo.PersonMgr">

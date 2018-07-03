@@ -1,21 +1,19 @@
-package org.kh.person.controller;
+package org.kh.bean.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.kh.person.model.vo.PersonMgr;
-import org.kh.person.model.vo.PersonVO;
+import org.kh.bean.model.vo.TestDataVO;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-public class Dependency2servlet extends HttpServlet {
+public class BeanTest1Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public Dependency2servlet() {
+	public BeanTest1Servlet() {
 		super();
 	}
 
@@ -32,13 +30,18 @@ public class Dependency2servlet extends HttpServlet {
 	protected void process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		AbstractApplicationContext context = new GenericXmlApplicationContext("/personContext.xml");
-		PersonVO pv = context.getBean("pMgr", PersonMgr.class).getPs();
+		AbstractApplicationContext context = new GenericXmlApplicationContext("/applicationContext.xml");
+		TestDataVO td1 = context.getBean("data", TestDataVO.class);
+		TestDataVO td2 = context.getBean("data", TestDataVO.class);
 		context.close();
 
-		response.setContentType("text/html; charset=utf-8");
-		response.getWriter()
-				.println("이름 : " + pv.getName() + "<br>" + "나이 : " + pv.getAge() + "<br>" + "주소 :" + pv.getAdrr());
+		// scope가 sigleton 일 때 각각 101 102
+		// scope가 protoype 일 때 각각 101 101
+		td1.setData(td1.getData() + 1);
+		System.out.println(td1.getData());
+
+		td2.setData(td2.getData() + 1);
+		System.out.println(td2.getData());
 
 	}
 
