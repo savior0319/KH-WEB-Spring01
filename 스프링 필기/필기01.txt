@@ -289,4 +289,4 @@ index.jsp
 -> @Autowired와 동일한 기능을 지원함(차이점은 Autowired는 스프링 전용, Inject는 자바전용)
 
 ## @Resource ##
--> @Autowired와 @Qualifier의 기능을 경합한 어노테이션
+-> @Autowired와 @Qualifier의 기능을 결합한 어노테이션
