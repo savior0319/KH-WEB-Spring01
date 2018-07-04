@@ -14,7 +14,7 @@ a {
 }
 </style>
 <body>
-	<h1>기본 페이지 입니다.</h1>
+	<h1>스프링 기본 페이지</h1>
 	<!-- <form action="/dependency1" method="get" accept-charset="utf-8">
 		<input type="text" name="beanName" placeholder="samsung or lg">
 		<button type="submit">전송</button>

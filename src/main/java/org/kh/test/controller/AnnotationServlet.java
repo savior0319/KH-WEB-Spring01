@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.kh.test.annotation.Computer;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
@@ -31,6 +32,7 @@ public class AnnotationServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		AbstractApplicationContext context = new GenericXmlApplicationContext("/annotationContext.xml");
+		context.getBean("com", Computer.class).getSonySpeaker().powerOn();
 		context.close();
 
 	}
