@@ -355,34 +355,19 @@ index.jsp
 	- DAO
 	- View
 
+## DispatcherServlet ##
+-> 유일한 서블릿 클래스로서
+Servlet Container에서 HTTP 프로토콜을 통해 들어오는 모든 요청을 가장 먼저 처리하는 Front Controller
 
+## HandlerMapping ##
+-> 클라이언트의 요청을 처리할 Controller 매핑 값을 가지고 있음
 
+## Controller ##
+-> 실질적인 클라이언트의 요청을 처리함
+-> 처리후 리턴값으로 view name 값을 리턴함
 
+## ViewResolver ##
+-> Controller가 리턴한 View name으로 실행될 JSP 경로를 가지고 있음
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## View ##
+-> 실제 클라이언트들에게 보여질 페이지
